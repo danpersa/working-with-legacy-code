@@ -321,6 +321,93 @@ _______________________________________________________________________
 						</script>
 					</section>
 				</section>
+				<section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							# Sensing and Separation
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							Get tests in place
+
+							Two reasons to break dependencies
+
+							* Sensing - *sense* when we can't access values our code computes
+							* Separation - *separate* when we can't get a piece of code into a test harness to run
+
+							Notes:
+
+							When we want to get tests in place, there are two reasons to
+							break dependencies: sensing and separation
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## Faking Collaborators
+
+							* In OO languages FC are implemented as simple classes
+							* In non-OO languages we can define an alternate function
+							* Use Mocking Frameworks
+							* Mock objects perform assertions internally
+
+							Notes:
+							There are lots of techniques to separate software, but one primary tool:
+							Fake collaborators
+
+							Usually we use a mocking framework like Mockito for Java
+						</script>
+					</section>
+				</section>
+				<section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							# The Seam Model
+						</script>
+
+
+
+
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							* Legacy code is poorly suited to testing
+							* We should design our new code for testing
+							* But how to deal with the old one?
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							> &ldquo;A seam is a place where you can alter the behavior in your program
+							> without editing that place.&rdquo;
+
+							<p align="right">*Michael Feathers*</p>
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							> &ldquo;Every seam has an enabling point, a place where you can make the decision to use
+							> one behavior or another.&rdquo;
+
+							<p align="right">*Michael Feathers*</p>
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## Preprocessing Seams
+							## Link Seams
+							## Object Seams
+
+							Notes:
+							* Used in C, C++, I hope nowhere else
+							* The example of the book is hacking the java classpath
+							we don't think this is a good practice, but when dealing
+							with legacy code, anything is possible
+							* Spring Profiles for tests is a good example for an Object Seam
+
+						</script>
+					</section>
+				</section>
 			</div>
 
 		</div>
