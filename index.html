@@ -364,10 +364,6 @@ _______________________________________________________________________
 						<script type="text/template">
 							# The Seam Model
 						</script>
-
-
-
-
 					</section>
 					<section data-markdown data-separator-notes="^Notes:">
 						<script type="text/template">
@@ -404,7 +400,196 @@ _______________________________________________________________________
 							we don't think this is a good practice, but when dealing
 							with legacy code, anything is possible
 							* Spring Profiles for tests is a good example for an Object Seam
+						</script>
+					</section>
+				</section>
 
+				<section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## I Don't Have Much Time and I Have to Change It
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							# Break Dependencies
+							# Write Tests
+
+							Notes:
+							First step when dealing with legacy code is breaking dependencies,
+							and writing tests
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## Time consuming
+							## Does this worth it??
+
+							Notes:
+							But this is time consuming! Does this worth it?
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							> &ldquo;Code is your house and you have to live in it!&rdquo;
+
+							<p align="right">*Michael Feathers*</p>
+
+							Notes:
+							Remember, code is your house and you have to live in it!
+
+							Either write tests as you make your changes, or live with the fact
+							that it is going to be tougher over time.
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## Can you do the changes in your code by writing fresh code?
+
+							Notes:
+							If you really can't afford to break dependencies and get tests in
+							place, look at the changes that you need to make and ask yourself
+
+							Can you make them by writing fresh code??
+
+							We'll talk about some techniques to consider:
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## Sprout Method
+
+							Do your changes as a new method and write tests for it
+							Notes:
+
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## TODO: Sprout Method Example
+
+							Notes:
+
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## Sprout Method Steps
+
+							1. Identify where you need to make your code changes
+							2. If the change can be formulated as a single sequence
+							   of statements in one place in a method, write down a
+							   call for a new method that will do the work involved
+							   and then comment it out
+							3. Determine what local variables you need from the source method,
+							   and make them arguments to the call
+							4. Determine whether the sprouted method will need to return values
+							   to source method. If so, change the call so that its return
+							   value is assigned to a variable
+							5. Develop the sprout method using test-driven development
+							6. Remove the comment in the source method to enable the call
+
+							Notes:
+
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## Sprout Method Advantages
+
+							You are clearly separating new code from old code
+
+							Notes:
+
+							Even if you can't get the old code under test immediately, you can
+							at least see your changes separately and have a clean interface
+							between the new code and the old code. You see all of the variables
+							affected, and this can make it easier to determine whether the code
+							is rightin context
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## Sprout Method Disadvantages
+
+							You are saying that you are giving up on the source method
+							and its class for the moment
+
+							Notes:
+
+							Giving up on a method or a class is the practical choice sometimes,
+							but it still is kind of sad. It leaves your code in limbo.
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## Sprout Class
+
+							You are saying that you are giving up on the source method
+							and its class for the moment
+
+							Notes:
+
+							Sometimes, Sprout Method is not powerful enough. Sprout Class
+							to the rescue! It's the same idea as for the Sprout Method,
+							but you create a new class and give the local variables as
+							parameters to the new classe's constructor
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## Wrapper Method
+
+							Wrap method is a great way to introduce seams while adding new
+							features.
+
+							Notes:
+							Another technique for doing changes to the code by writing new code
+							is Wrapper Method
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## TODO: Wrapper Method Example
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## Wrapper Method Steps
+							1. Identify a method you need to change.
+							2. If the change can be formulated as a single sequence of
+							   statements in one place, develop a new method for it
+							   using test-driven development (88).
+							3. Create another method that calls the new method and the old method.
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## Wrapper Method Advantages
+
+							* Getting new, tested functionality into the legacy app
+							* It explicitly makes the new functionality independent of
+							  existing functionality
+							* Does not increase the size of the existing methods
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## Wrapper Method Disadvantages
+
+							It can lead to poor names
+						</script>
+					</section>
+					<section data-markdown data-separator-notes="^Notes:">
+						<script type="text/template">
+							## Wrapper Class
+
+							Decorator Pattern
+
+							Notes:
+							The class level companion to Wrap Method is Wrap Class. It uses
+							pretty much the same concept so we won't get into details.
+							Feel free to consult the book :)
 						</script>
 					</section>
 				</section>
