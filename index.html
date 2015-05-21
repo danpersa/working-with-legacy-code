@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -526,7 +526,7 @@ _______________________________________________________________________
 							## Sprout Class
 
 							You are saying that you are giving up on the source method
-							and its class for the moment
+                            and its class for the moment
 
 							Notes:
 
@@ -603,106 +603,123 @@ _______________________________________________________________________
 					<section data-markdown data-separator-notes="^Notes:">
 						<script type="text/template">
 							## Reasons why it may take a long time to do a change
-* Understanding all of the effects of a change on code. 
-* Lag time, effect of dependencies that make the build slower. 
-* Breaking those dependencies
+
+							* Understanding
+							* Lag time
+							* Breaking those dependencies
                             
 							Notes:
-                            Some
+						
+							* Understand all of the effects of a change on code
+							* Time between a code change and getting feedback of that change. In the context, build time. 
+                            Dependencies make the build slower
+							* Breaking dependencies takes time
 							
 						</script>
 					</section>
                     <section data-markdown data-separator-notes="^Notes:">
 						<script type="text/template">
 							## Understanding
-<img width="70%" data-src="images/understanding_time.png" alt="Understanding time vs code base">
+							<img width="70%" data-src="images/understanding_time.png" alt="Understanding time vs code base">
 
 							Notes:
-                            The larger the code base is, the more time it takes to understant it, more or less exponentially. 
+							The larger the code base is, the more time it takes to understant it, more or less exponentially.
 							
 						</script>
 					</section>
                     <section data-markdown data-separator-notes="^Notes:">
 						<script type="text/template">
 							### Well maintained vs Legacy system
-<table>
-						<thead>
-                            <tr>
+							<table>
+							<thead>
+							<tr>
 								<th></th>
 								<th></th>
 								<th></th>
-                                <th></th>
+							    <th></th>
 							</tr>
-						</thead>
-						<tbody>
+							</thead>
+							<tbody>
 							<tr>
 								<td>To figure out how to make a change</td>
 								<td>might take a while</td>
 								<td></td>
-                                <td>would take a long time</td>
+							    <td>would take a long time</td>
 							<tr>
 							<tr>
 								<td>Once you figure out</td>
 								<td>the change is easy</td>
 								<td></td>
-                                <td>change is difficult</td>
+							    <td>change is difficult</td>
 							<tr>
 							<tr>
 								<td>Confidence with the change</td>
 								<td>high</td>
 								<td></td>
-                                <td>hope for the best</td>
+							    <td>hope for the best</td>
 							<tr>
-						</tbody>
-					</table>							
-Notes:
-Changes in legacy code are done with a feeling like only small portion of code is comprehended, there is a hope for the best attitude. 		
+							</tbody>
+							</table>
+
+							Notes:
+							Changes in legacy code are done with a feeling like only small portion of code is comprehended, 
+                            there is a hope for the best attitude.
 						</script>
 					</section>
                     <section data-markdown data-separator-notes="^Notes:">
 						<script type="text/template">
 							## Lag time
-The amount of time between a change and getting feedback about the change
 
-* Changes done -> building to see changes and running tests	takes too long, focus is lost.
-* Main impediment in work with compiled languages is dependency, need to compile something, in order to compile what we actually want to.
-Notes:
-Some
-							
+							The amount of time between a change and getting feedback about the change
+
+							Notes:
+							Changes done -> re-building and running tests (to see changes) takes too long, focus is lost.
+							Main obstacle in work with compiled languages is dependency, need to compile something, in order to 
+                            compile what we actually want to.
 						</script>
 					</section>
                     <section data-markdown data-separator-notes="^Notes:">
 						<script type="text/template">
 							## Breaking dependencies
-Dependencies make it slower to recompile the classes of interest
 
-Notes:
-Some
+							Dependencies make it slower to recompile the classes of interest
+
+							Notes:
+
 							
 						</script>
 					</section>
                     <section data-markdown data-separator-notes="^Notes:">
 						<script type="text/template">
 							## Build dependencies
-In OOP system, to build cluster of classes quickly:
 
-1. Find dependencies
-2. Extract interfaces for the classes
+							In OOP system, to build cluster of classes quickly:
 
-Notes:
-Makes overall build more complex, but average time for build can decrease dramatically. Once the cluster of classes is put under test, it gives an option to change the physical structure, e.g. repackage interfaces into separate package or library.
+							1. Find dependencies
+							2. Extract interfaces for the classes
+
+							Notes:
+							Makes overall build more complex, but average time for build can decrease dramatically. Once the 
+                            cluster of classes is put under test, it gives an option to change the physical structure, 
+                            e.g. repackage interfaces into separate package or library.
 						</script>
 					</section>
                     <section data-markdown data-separator-notes="^Notes:">
 						<script type="text/template">
-							## Example 
-## TODO;
+							## Example
+							## TODO;
                         </script>
 					</section>
                     <section data-markdown data-separator-notes="^Notes:">
 						<script type="text/template">
 							## The dependency invasion principle
-The code that depends on interface, dependency is minor and unobstrusive. Better to depend on interface or abstract class. It makes the build between changes quicker, as dependency code does not need to be recompiled. 
+
+							>For a class that depends on interface, dependency is minor and unobstrusive.  
+                            It makes the build between changes quicker.
+
+							Notes:
+							Better to depend on interface or abstract class. Makes rebuilding faster, 
+                            because dependencies need not to be recompiled.
                         </script>
 					</section>
                 </section>
